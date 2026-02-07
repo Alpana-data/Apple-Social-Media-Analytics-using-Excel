@@ -1,6 +1,6 @@
 # Apple-Social-Media-Analytics-using-Excel
 Objective: Build a Social Media Intelligence Solution in Excel that consolidates Apple’s raw data into actionable business insights. To make data-driven decisions for improving campaign performance, engagement, and platform strategy. 
-Tools used - Microsoft Excel (Pivot Tables, Charts, Filters, Formulas).
+Tools used : Microsoft Excel (Pivot Tables, Charts, Filters, Formulas).
 Dataset : Posts, Engagement summary, Campaign Metadata
 Tasks performed : Analyzed Apple’s social media engagement data to identify trends in likes, shares, and comments.
 Cleaned and organized raw data using Excel formulas, filters, and pivot tables.
