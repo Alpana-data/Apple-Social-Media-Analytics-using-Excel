@@ -1,0 +1,71 @@
+Approach Sheet Apple social media project
+Task 1: Data Preprocessing & Cleaning
+1.	Remove duplicate Tesla posts: No duplicates found.
+2.	Standardise date & platform name :
+By having another column for date and writing a formula
+ =text(cell no., “dd-mm-yyyy”) > copying the results > pasting the value only to the original column.
+For the platform name, using proper and trim function together in another cell and copying the values to the original column.
+3.	Format numeric columns (Likes, Reach, Impressions, Ad Spend): by changing the format from general to Number.
+4.	Split hashtags (e.g., #ShotOniPhone, #iPhone16, #AppleEvent) into separate tags for analysis:
+By using delimiter function in text to column and space as a delimiter I split the hashtags.
+Select the column that has hashtags
+Go to the ribbon → Data tab → Text to Columns → Choose Delimited → click Next →Tick Space as the delimiter (because hashtags are separated by spaces) → Click Finish.
+Task 2 : Engagement Analysis
+1.	Calculate average engagement rate per platform: Engagement Rate = (Likes + Shares + Comments) / Impressions 
+By using pivot table and platform in rows and engagement rate in values and in field setting we select average
+
+2.	Identify Top 10 Tesla posts with highest engagement: don’t have any tesla posts.
+3.	Create a pivot table showing: 
+○ Total Likes, Shares, Comments by Content Type & Platform :
+In pivot table we put Cotent Type and Platform in rows and Likes, shares and Comments in Values. We will get Platform is grouped in content type, we can use slicers to get a visual filter option for the same.
+○ Average Clicks per post by Hashtag
+Using pivot table Hashtags in row and clicks in values and changing the value field settings as average
+4.	Highlight top-performing hashtags such as #ShotOniPhone, #AppleEvent, #iPhone16Launch, #MacBookAir.
+Approach: Applying sort largest to smallest in Engagement rate
+Task 3  : Platform Analysis
+1.	Identify the platform with the highest engagement (e.g., Twitter for announcements vs. YouTube for product demos). 
+Approach: Using a pivot table where the platform is in rows and engagement is in values, and setting the value field setting to sum. Or we can also do it by using =SUMIF(range, criteria, Sumrange) where range is (Whole) platform column and criteria is Platform (LinkedIn, Instagram, Twitter, YouTube), and in the sum range we select the whole engagement column.
+2.	Compare follower growth rates across platforms:
+Approach:  Insert columns in Engagement summary 
+Starting follower (Total Followers + Unfollows – New Followers),
+Ending Follower = Total Follower, 
+Growth rate =([@[ending followers ]]-[@[starting followers ]])/[@[starting followers ]] and change the number format to percentage.
+Using pivot Platform in rows and growth rate in values and changing the value field to average in value field settings.
+3.	Visualise Engagement vs. Ad Spend per platform :
+Approach  Using =SUMIF to calculate total likes, Shares and Comments  per platform, calculating Engagement using =SUM(Likes, Shares  + Comments) from Posts sheet and Adspend per platform from Engagement summary sheet using and creating a chart to visualize the data.
+4.	Advise Apple’s team: Should they focus on YouTube + Instagram (videos + visuals) or continue a multi-platform strategy?
+Approach: For this using pivot table Contenttype in rows , platform in Columns and Engagement rate in values and setting the value field to Average we can compare the results and can get to know which type of content has high engagement in which platform.
+Task 4 Hashtag & Content Strategy
+1.	Identify the most frequently used Apple hashtags. 
+Approach 1: Pivot table Hashtags in rows and hashtags in values with count in field settings 
+Approach 2: Using count if function =Countif(range, criteria)
+2.	Compare average performance of posts containing each hashtag.
+Approach 1: Pivot table Hashtags in rows and Engagement rate in values with average in field settings 
+Approach 2: Using Averageif function =Averageif(range, criteria, Average range)
+3.	Compare content performance
+Approach 1: Pivot table Content type in rows and Engagement rate in values with average in field settings 
+Approach 2: Using Averageif function =Averageif(range, criteria, Average range)
+4.	Recommend which content type performs best on each platform(e.g., videos for YouTube, product images for Instagram).
+Approach: Using pivot table Platform in Row, Content type in columns and Engagement rate in values
+
+Task 5: Campaign Effectiveness
+1.	Calculate: ○ Total & Average Impressions, Likes, Clicks per Campaign. 
+Approach1 : Using pivot table Campaign in rows and two times of Impressions, likes, clicks one for sum and one for Average.
+Approach 2 : Using Sumif and AverageIF Function.
+2.	 Measure engagement uplift during vs. before campaigns (e.g., iPhone 16 launch spike).
+Approach: Insert columns and calculating Engagement before and Engagement During the campaign start date to end date and calculating 
+Engagement uplift = (Engagement during-Engagement before )/ Engagement before
+And setting number format to percentage.
+3.	Which campaign had the highest ROI (engagement vs. spend)?
+Approach Calculating Engagement (Likes + Shares + Comments) per campaign using sumif and adspend per campaign from Campaign metadata sheet, calculating ROI by Engagement/Adspend
+Task 6: Follower Retention & Loyalty
+1.	 Visualize weekly follower growth per platform (line chart). 
+Approach: Using pivot table Week start date in row, platform in column, and follower growth in values
+2.	Identify the peak week of follower gain.
+Approach: Follower gain is calculated by using sumif formula SUMIF('Engagement
+Summary'!Criteria,[@[Week start date ]],Engagement_Summary[[Follower gain ]])
+3.	Use moving averages to smooth growth trends. 
+Approach: Using pivot table week no. in row and follower gain in values and changing field settings to average
+4.	Correlate ad spend vs. follower growth using scatter plots
+Approach: use a scatter chart with ad spend on the x-axis and Follower growth on the y-axis, and add a trend line to show the relationship between follower growth and ad spend.
+Task 7: Video explanation: Expressing the finding and actionable insights https://www.loom.com/share/0f0c67baf32940f7a3551c7960b1e35f
